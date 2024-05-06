@@ -1,0 +1,2 @@
+# QML_UI_Minimalist
+使用QML实现各种极简风格的自定义控件
