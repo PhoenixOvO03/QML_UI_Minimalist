@@ -4,6 +4,6 @@ Rectangle {
     color: "transparent"
 
     Text {
-        text: qsTr("这是主体")
+        text: qsTr("我是窗口主体")
     }
 }

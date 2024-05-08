@@ -11,6 +11,8 @@ Window{
     visible: true
 
     property bool isBody: true
+    property string titleColor: "black"
+    property string backgroundColor: "gray"
 
     Item {
         anchors.fill: parent
@@ -19,8 +21,7 @@ Window{
         Rectangle{
             id: background
             anchors.fill: parent
-
-            color: "gray"
+            color: mainWindow.backgroundColor
         }
 
         // 标题栏
@@ -28,7 +29,7 @@ Window{
             id: titleBar
             width: parent.width
             height: 50
-            color: "black"
+            color: mainWindow.titleColor
 
             // 拖动条
             Item {
@@ -44,12 +45,20 @@ Window{
                     }
                 }
 
+                // 主图标
                 Image {
-                    id: name
+                    id: mainIcon
                     height: parent.height
                     width: parent.height
-
                     source: "./res/Qt.png"
+                }
+
+                // up标识
+                Image {
+                    height: parent.height
+                    anchors.left: mainIcon.right
+                    fillMode: Image.PreserveAspectFit
+                    source: "./res/title.png"
                 }
             }
 
@@ -138,6 +147,11 @@ Window{
             anchors.top: titleBar.bottom
             anchors.bottom: parent.bottom
             visible: !mainWindow.isBody
+
+            onCheckSkin: {
+                titleColor = titleArg
+                backgroundColor = backgroundArg
+            }
         }
 
         // 主体

@@ -19,6 +19,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         Main.qml
         Skin.qml
         Body.qml
+        SkinItem.qml
     RESOURCES
         res/close.png
         res/max.png
@@ -27,6 +28,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/skin.png
         res/skin.png
         res/Qt.png
+        res/title.png
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
