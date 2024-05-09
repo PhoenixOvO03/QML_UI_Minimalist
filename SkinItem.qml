@@ -1,5 +1,6 @@
 import QtQuick
 
+// 各个主题组件
 Rectangle {
     property string titleColor: "black"
     property string backgroundColor: "gray"
@@ -22,7 +23,7 @@ Rectangle {
         Rectangle{
             id: title
             width: parent.width
-            height: parent.height * 0.1
+            height: parent.height * 0.2
             color: root.titleColor
         }
 
@@ -30,7 +31,7 @@ Rectangle {
             id: body
             anchors.top: title.bottom
             width: parent.width
-            height: parent.height * 0.9
+            height: parent.height * 0.8
             color: root.backgroundColor
         }
     }

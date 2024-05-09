@@ -8,8 +8,10 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
+set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/res/icon.rc")
+
 qt_add_executable(appQML_UI_Minimalist
-    main.cpp
+    main.cpp ${app_icon_resource_windows}
 )
 
 qt_add_qml_module(appQML_UI_Minimalist
@@ -20,6 +22,10 @@ qt_add_qml_module(appQML_UI_Minimalist
         Skin.qml
         Body.qml
         SkinItem.qml
+        SiderbarItem.qml
+        Pages.qml
+        BtnsPage.qml
+        SwitchBtn.qml
     RESOURCES
         res/close.png
         res/max.png
@@ -29,7 +35,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/skin.png
         res/Qt.png
         res/title.png
-
+        res/menu.png
+        res/switch.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

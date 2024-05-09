@@ -1,5 +1,6 @@
 import QtQuick
 
+// 设置主题界面
 Rectangle {
     property string titleArg: "black"
     property string backgroundArg: "gray"
@@ -11,22 +12,10 @@ Rectangle {
 
     ListModel{
         id: listModel
-        ListElement{
-            title: "black"
-            background: "gray"
-        }
-        ListElement{
-            title: "blue"
-            background: "white"
-        }
-        ListElement{
-            title: "red"
-            background: "pink"
-        }
-        ListElement{
-            title: "green"
-            background: "lightGreen"
-        }
+        ListElement{title: "black"; background: "gray"}
+        ListElement{title: "blue"; background: "white"}
+        ListElement{title: "red"; background: "pink"}
+        ListElement{title: "green"; background: "lightGreen"}
     }
 
     GridView{

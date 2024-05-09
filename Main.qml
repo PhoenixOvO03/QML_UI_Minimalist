@@ -4,8 +4,9 @@ import QtQuick.Controls
 
 Window{
     id: mainWindow
-    width: 650
-    height: 400
+    width: 800
+    height: 650
+    title: "QML_UI_Minimalist"
     // 窗口 | 无边框窗口
     flags: Qt.Window | Qt.FramelessWindowHint
     visible: true
@@ -14,6 +15,7 @@ Window{
     property string titleColor: "black"
     property string backgroundColor: "gray"
 
+    // 全体界面
     Item {
         anchors.fill: parent
 
