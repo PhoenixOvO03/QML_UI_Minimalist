@@ -3,7 +3,7 @@ import QtQuick
 // 开关按钮
 Item {
     property string checkColor: "green"
-    property bool isCheck: false
+    property bool isChecked: false
 
     id: root
 
@@ -12,7 +12,7 @@ Item {
         width: root.width
         height: root.height * 0.6
         radius: height / 2
-        color: root.isCheck ? root.checkColor : "gray"
+        color: root.isChecked ? root.checkColor : "gray"
 
         Behavior on color {
             ColorAnimation {
@@ -22,11 +22,11 @@ Item {
     }
 
     Rectangle{
-        x: root.isCheck ? root.width - root.height : 0
+        x: root.isChecked ? root.width - root.height : 0
         width: root.height
         height: root.height
         radius: height / 2
-        color: root.isCheck ? Qt.lighter(root.checkColor) : "lightgray"
+        color: root.isChecked ? Qt.lighter(root.checkColor) : "lightgray"
 
         Behavior on x{
             NumberAnimation{
@@ -43,6 +43,6 @@ Item {
 
     MouseArea{
         anchors.fill: parent
-        onClicked: root.isCheck = !root.isCheck
+        onClicked: root.isChecked = !root.isChecked
     }
 }

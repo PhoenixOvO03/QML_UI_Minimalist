@@ -89,6 +89,7 @@ Rectangle {
 
             highlight: highlightComponent
             focus: true
+            onCurrentIndexChanged: root.pageIndex = listView.currentIndex
         }
 
         // 高亮

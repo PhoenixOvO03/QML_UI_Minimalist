@@ -26,6 +26,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         Pages.qml
         BtnsPage.qml
         SwitchBtn.qml
+        CheckBtn.qml
+        RadioBtnCombobox.qml
     RESOURCES
         res/close.png
         res/max.png
