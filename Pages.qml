@@ -7,8 +7,15 @@ Rectangle {
     id: root
     color: "#20000000"
 
+    // 按钮页面
     BtnsPage{
         anchors.fill: parent
         visible: root.pageIndex === 0
+    }
+
+    // 进度条页面
+    ProgressesPage{
+        anchors.fill: parent
+        visible: root.pageIndex === 1
     }
 }

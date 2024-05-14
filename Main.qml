@@ -12,8 +12,8 @@ Window{
     visible: true
 
     property bool isBody: true
-    property string titleColor: "black"
-    property string backgroundColor: "gray"
+    property color titleColor: "black"
+    property color backgroundColor: "gray"
 
     // 全体界面
     Item {

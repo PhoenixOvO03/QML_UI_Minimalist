@@ -3,11 +3,12 @@ import QtQuick.Shapes
 
 // 复选按钮
 Item {
-    property string checkColor: "green"
+    property color checkColor: "green"
     property bool isChecked: false
 
     id: root
 
+    // 框
     Rectangle{
         width: parent.width
         height: parent.height
@@ -23,6 +24,7 @@ Item {
         }
     }
 
+    // 勾
     Shape {
         anchors.fill: parent
         ShapePath {

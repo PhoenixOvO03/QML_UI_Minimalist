@@ -2,7 +2,7 @@ import QtQuick
 
 // 开关按钮
 Item {
-    property string checkColor: "green"
+    property color checkColor: "green"
     property bool isChecked: false
 
     id: root

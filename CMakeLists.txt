@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(QML_UI_Minimalist VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
@@ -28,6 +29,9 @@ qt_add_qml_module(appQML_UI_Minimalist
         SwitchBtn.qml
         CheckBtn.qml
         RadioBtnCombobox.qml
+        ProgressesPage.qml
+        SliderProgress.qml
+        CircleProgress.qml
     RESOURCES
         res/close.png
         res/max.png
@@ -39,6 +43,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/title.png
         res/menu.png
         res/switch.png
+        res/progress.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

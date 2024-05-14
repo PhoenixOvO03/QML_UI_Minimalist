@@ -43,8 +43,8 @@ Rectangle {
                 labelIcon: "./res/switch.png"
             }
             ListElement{
-                labelText: "xx"
-                labelIcon: "./res/normal.png"
+                labelText: "进度条"
+                labelIcon: "./res/progress.png"
             }
             ListElement{
                 labelText: "xxx"

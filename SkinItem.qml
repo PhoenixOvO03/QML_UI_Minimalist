@@ -2,8 +2,8 @@ import QtQuick
 
 // 各个主题组件
 Rectangle {
-    property string titleColor: "black"
-    property string backgroundColor: "gray"
+    property color titleColor: "black"
+    property color backgroundColor: "gray"
 
     signal click()
 

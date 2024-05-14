@@ -3,7 +3,7 @@ import QtQuick
 // 单选按钮组
 Rectangle{
     property ListModel listModel: ListModel{}
-    property string checkColor: "green"
+    property color checkColor: "green"
 
     id: root
     color: "transparent"

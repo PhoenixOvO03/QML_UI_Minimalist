@@ -2,8 +2,8 @@ import QtQuick
 
 // 设置主题界面
 Rectangle {
-    property string titleArg: "black"
-    property string backgroundArg: "gray"
+    property color titleArg: "black"
+    property color backgroundArg: "gray"
 
     signal checkSkin()
 
