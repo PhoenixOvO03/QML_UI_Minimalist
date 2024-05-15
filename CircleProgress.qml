@@ -20,14 +20,10 @@ Item {
         y: root.width / 2
         anchors.verticalCenter: parent.verticalCenter
         font.family: "华文彩云"
-        font.pointSize: root.width / 10
+        font.pixelSize: root.width / 8
         color: root.sliderColor
         text: "温度：" + root.value
     }
-
-    property int canvasRadius: root.width / 2 - 3
-    property int lineWidth: 16
-    property int lineBorder: 6
 
     Canvas {
         id: canvas

@@ -47,8 +47,8 @@ Rectangle {
                 labelIcon: "./res/progress.png"
             }
             ListElement{
-                labelText: "xxx"
-                labelIcon: "./res/normal.png"
+                labelText: "编辑"
+                labelIcon: "./res/edit.png"
             }
             ListElement{
                 labelText: "xxxx"

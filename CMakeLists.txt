@@ -32,6 +32,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         ProgressesPage.qml
         SliderProgress.qml
         CircleProgress.qml
+        EditPage.qml
+        LineEdit.qml
     RESOURCES
         res/close.png
         res/max.png
@@ -44,6 +46,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/menu.png
         res/switch.png
         res/progress.png
+        res/edit.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -18,4 +18,10 @@ Rectangle {
         anchors.fill: parent
         visible: root.pageIndex === 1
     }
+
+    // 编辑页面
+    EditPage{
+        anchors.fill: parent
+        visible: root.pageIndex === 2
+    }
 }
