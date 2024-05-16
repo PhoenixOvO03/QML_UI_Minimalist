@@ -4,36 +4,60 @@ import QtQuick
 Item {
     anchors.margins: 20
 
-    // 滑块进度条
-    SliderProgress{
-        width: 200
-        height: 20
-        sliderColor: "blue"
-        onValueChanged: circleProgress1.value = value
-    }
+    Column{
+        spacing: 20
 
-    SliderProgress{
-        x: 250
-        width: 200
-        height: 20
-        sliderColor: "pink"
-        onValueChanged: circleProgress2.value = value
-    }
+        // 滑块进度条
+        Row{
+            spacing: 20
 
-    CircleProgress{
-        id: circleProgress1
-        y : 100
-        width: 200
-        height: 200
-        sliderColor: "blue"
-    }
+            SliderProgress{
+                width: 200
+                height: 20
+                sliderColor: "blue"
+                onValueChanged: circleProgress1.value = value
+            }
 
-    CircleProgress{
-        id: circleProgress2
-        x: 250
-        y : 100
-        width: 200
-        height: 200
-        sliderColor: "pink"
+            SliderProgress{
+                width: 200
+                height: 20
+                sliderColor: "pink"
+                onValueChanged: circleProgress2.value = value
+            }
+
+            SliderProgress{
+                width: 200
+                height: 20
+                sliderColor: "yellow"
+                onValueChanged: circleProgress3.value = value
+            }
+        }
+
+        // 圆形进度条
+        Row{
+            spacing: 20
+
+            CircleProgress{
+                id: circleProgress1
+                width: 200
+                height: 200
+                sliderColor: "blue"
+                typeName: "温度："
+            }
+
+            CircleProgress{
+                id: circleProgress2
+                width: 200
+                height: 200
+                sliderColor: "pink"
+                typeName: "湿度："
+            }
+            CircleProgress{
+                id: circleProgress3
+                width: 200
+                height: 200
+                sliderColor: "yellow"
+            }
+        }
     }
 }

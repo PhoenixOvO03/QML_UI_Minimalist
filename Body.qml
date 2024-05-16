@@ -35,6 +35,7 @@ Rectangle {
             }
         }
 
+        // 标签信息
         ListModel{
             id: listModel
 
@@ -49,14 +50,6 @@ Rectangle {
             ListElement{
                 labelText: "编辑"
                 labelIcon: "./res/edit.png"
-            }
-            ListElement{
-                labelText: "xxxx"
-                labelIcon: "./res/normal.png"
-            }
-            ListElement{
-                labelText: "xxxxx"
-                labelIcon: "./res/normal.png"
             }
         }
 

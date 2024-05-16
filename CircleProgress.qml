@@ -5,6 +5,7 @@ Item {
     property int value: 0 //当前值
     property double valueAngle: -150*Math.PI/180 + value*3*Math.PI/180
     property color sliderColor: "green"
+    property string typeName: ""
 
     Behavior on valueAngle {
         NumberAnimation{
@@ -17,12 +18,12 @@ Item {
     id: root
 
     Text {
-        y: root.width / 2
+        x: root.width * 0.05
         anchors.verticalCenter: parent.verticalCenter
         font.family: "华文彩云"
         font.pixelSize: root.width / 8
         color: root.sliderColor
-        text: "温度：" + root.value
+        text: root.typeName + root.value
     }
 
     Canvas {

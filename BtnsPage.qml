@@ -29,6 +29,17 @@ Item {
             CheckBtn{width: 100; height: 100; checkColor: "brown"}
         }
 
+        // 点击按钮
+        Row{
+            spacing: 20
+
+            ClickBtn{width: 100; height: 50; btnColor: "green"; btnText: "btn1"}
+            ClickBtn{width: 100; height: 50; btnColor: "red"; btnText: "按钮2"}
+            ClickBtn{width: 100; height: 50; btnColor: "blue"}
+            ClickBtn{width: 100; height: 50; btnColor: "pink"}
+            ClickBtn{width: 100; height: 50; btnColor: "brown"}
+        }
+
         // 单选按钮组
         Row{
             spacing: 20

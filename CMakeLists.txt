@@ -34,6 +34,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         CircleProgress.qml
         EditPage.qml
         LineEdit.qml
+        ClickBtn.qml
     RESOURCES
         res/close.png
         res/max.png
