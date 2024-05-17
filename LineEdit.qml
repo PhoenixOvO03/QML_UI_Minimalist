@@ -1,5 +1,10 @@
 import QtQuick
 
+// 单行输入框
+/*
+ * 感谢B站用户 C站搜喵呜角角 提出的建议：
+ * 右侧的清除按钮在输入后再显示出来
+*/
 Rectangle {
     radius: height / 2
     color: "gray"
@@ -37,6 +42,7 @@ Rectangle {
         height: width
         radius: width / 2
         color: "#40FFFFFF"
+        visible: textInput.length !== 0
 
         Text {
             anchors.centerIn: parent

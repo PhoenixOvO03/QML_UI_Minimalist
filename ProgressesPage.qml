@@ -41,6 +41,8 @@ Item {
                 id: circleProgress1
                 width: 200
                 height: 200
+                minValue: -40
+                maxValue: 50
                 sliderColor: "blue"
                 typeName: "温度："
             }
@@ -49,13 +51,18 @@ Item {
                 id: circleProgress2
                 width: 200
                 height: 200
+                minValue: 0
+                maxValue: 100
                 sliderColor: "pink"
                 typeName: "湿度："
             }
+
             CircleProgress{
                 id: circleProgress3
                 width: 200
                 height: 200
+                minValue: 25
+                maxValue: 75
                 sliderColor: "yellow"
             }
         }

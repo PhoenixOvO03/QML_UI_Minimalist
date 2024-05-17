@@ -2,6 +2,8 @@ import QtQuick
 
 // 点击按钮
 Rectangle {
+    signal clicked()
+
     property string btnText: ""
     property color btnColor: "green"
     property bool hover: false
@@ -12,7 +14,7 @@ Rectangle {
 
     Text {
         anchors.centerIn: parent
-        font.pixelSize: root.height / 2
+        font.pixelSize: root.height / 3
         font.family: "华文彩云"
         color: "white"
         style: Text.Outline
@@ -24,5 +26,6 @@ Rectangle {
         anchors.fill: parent
         onPressed: root.hover = true
         onReleased: root.hover = false
+        onClicked: root.clicked()
     }
 }

@@ -25,6 +25,13 @@ Rectangle {
         height: width
         radius: width / 2
         color: Qt.lighter(root.sliderColor)
+
+        Text {
+            anchors.centerIn: parent
+            font.pixelSize: parent.width / 2
+            color: Qt.darker(root.sliderColor)
+            text: root.value
+        }
     }
 
     MouseArea{
