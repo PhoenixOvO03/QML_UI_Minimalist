@@ -27,29 +27,11 @@ Rectangle {
             width: siderbar.width
             height: root.width * 0.1
             // textVisible: sidebarChecked
-            color: "#40000000"
+            // color: "#20000000"
 
             MouseArea{
                 anchors.fill: parent
                 onClicked: root.sidebarChecked = !root.sidebarChecked
-            }
-        }
-
-        // 标签信息
-        ListModel{
-            id: listModel
-
-            ListElement{
-                labelText: "按钮"
-                labelIcon: "./res/switch.png"
-            }
-            ListElement{
-                labelText: "进度条"
-                labelIcon: "./res/progress.png"
-            }
-            ListElement{
-                labelText: "编辑"
-                labelIcon: "./res/edit.png"
             }
         }
 
@@ -62,9 +44,25 @@ Rectangle {
             anchors.bottom: siderbar.bottom
             clip: true
 
-            model: listModel
+            // 标签信息
+            model: ListModel{
+                ListElement{
+                    labelText: "按钮"
+                    labelIcon: "./res/switch.png"
+                }
+                ListElement{
+                    labelText: "进度条"
+                    labelIcon: "./res/progress.png"
+                }
+                ListElement{
+                    labelText: "编辑"
+                    labelIcon: "./res/edit.png"
+                }
+            }
 
+            // 侧边栏部件
             delegate: SiderbarItem{
+                id: siderbarItem
                 width: menu.width
                 height: menu.height
                 // textVisible: sidebarChecked
@@ -73,10 +71,14 @@ Rectangle {
 
                 MouseArea{
                     anchors.fill: parent
+                    hoverEnabled: true
                     onClicked: {
                         listView.currentIndex = index
                         root.pageIndex = index
+                        siderbarItem.isHover = false
                     }
+                    onEntered: if(listView.currentIndex !== index) siderbarItem.isHover = true
+                    onExited: siderbarItem.isHover = false
                 }
             }
 

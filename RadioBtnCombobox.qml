@@ -14,10 +14,12 @@ Rectangle{
 
         model: root.listModel
 
+        // 单选元素
         delegate: Item {
             width: root.width
             height: root.height / root.listModel.count
 
+            // 圆点
             Item {
                 id: btn
                 width: parent.height
@@ -40,6 +42,7 @@ Rectangle{
                 }
             }
 
+            // 单选文字
             Text {
                 anchors.left: btn.right
                 height: parent.height
@@ -59,6 +62,7 @@ Rectangle{
         }
 
         highlight: highlightComponent
+        interactive: false // 不可滑动
     }
 
     // 高亮

@@ -24,9 +24,10 @@ Item {
 
     id: root
 
+    // 文字
     Text {
         x: root.width * 0.05
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenter: root.verticalCenter
         font.family: "华文彩云"
         font.pixelSize: root.width / 8
         color: root.sliderColor

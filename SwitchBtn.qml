@@ -7,6 +7,7 @@ Item {
 
     id: root
 
+    // 滑槽
     Rectangle{
         anchors.centerIn: parent
         width: root.width
@@ -21,6 +22,7 @@ Item {
         }
     }
 
+    // 圆点
     Rectangle{
         x: root.isChecked ? root.width - root.height : 0
         width: root.height

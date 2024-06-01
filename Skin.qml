@@ -12,10 +12,10 @@ Rectangle {
 
     ListModel{
         id: listModel
-        ListElement{title: "black"; background: "gray"}
+        ListElement{title: "black"; background: "#404040"/*"gray"*/}
         ListElement{title: "blue"; background: "white"}
-        ListElement{title: "red"; background: "pink"}
-        ListElement{title: "green"; background: "lightGreen"}
+        ListElement{title: "red"; background: "#ffd0d0"/*"pink"*/}
+        ListElement{title: "green"; background: "#80d080"/*"lightGreen"*/}
     }
 
     GridView{

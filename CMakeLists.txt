@@ -35,6 +35,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         EditPage.qml
         LineEdit.qml
         ClickBtn.qml
+        RippleProgress.qml
+        AreaEdit.qml
     RESOURCES
         res/close.png
         res/max.png

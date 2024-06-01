@@ -7,10 +7,11 @@ import QtQuick
 */
 Rectangle {
     radius: height / 2
-    color: "gray"
+    color: "#20000000"
     border.width: 5
     border.color: "steelblue"
 
+    // 边框
     Rectangle{
         anchors.centerIn: parent
         width: parent.width - 4
@@ -21,6 +22,7 @@ Rectangle {
         border.color: "white"
     }
 
+    // 输入框
     TextInput{
         id: textInput
         height: parent.height
@@ -34,6 +36,7 @@ Rectangle {
         clip: true
     }
 
+    // 清除按钮
     Rectangle{
         id: clearBtn
         x: parent.width - parent.height * 0.75
@@ -48,11 +51,16 @@ Rectangle {
             anchors.centerIn: parent
             color: "white"
             text: "X"
+            font.pixelSize: parent.width / 2
         }
 
         MouseArea{
             anchors.fill: parent
             onClicked: textInput.clear()
         }
+    }
+
+    function getText(){
+        return textInput.text
     }
 }

@@ -15,21 +15,30 @@ Item {
                 width: 200
                 height: 20
                 sliderColor: "blue"
-                onValueChanged: circleProgress1.value = value
+                onValueChanged: {
+                    circleProgress1.value = value
+                    rippleProgress1.value = value
+                }
             }
 
             SliderProgress{
                 width: 200
                 height: 20
                 sliderColor: "pink"
-                onValueChanged: circleProgress2.value = value
+                onValueChanged: {
+                    circleProgress2.value = value
+                    rippleProgress2.value = value
+                }
             }
 
             SliderProgress{
                 width: 200
                 height: 20
                 sliderColor: "yellow"
-                onValueChanged: circleProgress3.value = value
+                onValueChanged: {
+                    circleProgress3.value = value
+                    rippleProgress3.value = value
+                }
             }
         }
 
@@ -64,6 +73,32 @@ Item {
                 minValue: 25
                 maxValue: 75
                 sliderColor: "yellow"
+            }
+        }
+
+        // 水波进度条
+        Row{
+            spacing: 20
+
+            RippleProgress{
+                id: rippleProgress1
+                width: 200
+                height: 200
+                valueColor: "blue"
+            }
+
+            RippleProgress{
+                id: rippleProgress2
+                width: 200
+                height: 200
+                valueColor: "pink"
+            }
+
+            RippleProgress{
+                id: rippleProgress3
+                width: 200
+                height: 200
+                valueColor: "yellow"
             }
         }
     }

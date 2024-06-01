@@ -1,9 +1,11 @@
 import QtQuick
 
+// 编辑页面
 Item {
     anchors.margins: 20
 
     Column{
+        // 单行输入框
         Row{
             spacing: 20
 
@@ -15,6 +17,16 @@ Item {
             LineEdit{
                 width: 400
                 height: 100
+            }
+        }
+
+        // 区域输入框
+        Row{
+            spacing: 20
+
+            AreaEdit{
+                width: 200
+                height: 200
             }
         }
     }

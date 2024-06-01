@@ -13,7 +13,7 @@ Window{
 
     property bool isBody: true
     property color titleColor: "black"
-    property color backgroundColor: "gray"
+    property color backgroundColor: "#404040"
 
     // 全体界面
     Item {
@@ -72,6 +72,7 @@ Window{
                 anchors.right: minBtn.left
                 color: "transparent"
 
+                // 主题图标
                 Image {
                     anchors.fill: parent
                     source: "./res/skin.png"

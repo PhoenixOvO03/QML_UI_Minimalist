@@ -5,7 +5,8 @@ Rectangle {
     property int pageIndex: 0
 
     id: root
-    color: "#20000000"
+    // color: "#20000000"
+    color: "transparent"
 
     // 按钮页面
     BtnsPage{
