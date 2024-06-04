@@ -36,7 +36,7 @@ Rectangle {
         font.family: "华文彩云"
         style: Text.Outline
         styleColor: "steelblue"
-        font.pixelSize: root.height / 3
+        font.pixelSize: root.height / 4
         // visible: root.textVisible
         text: root.text
     }

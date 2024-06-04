@@ -35,13 +35,37 @@ Rectangle {
             }
         }
 
+        // 哔哩哔哩
+        SiderbarItem{
+            id: bilibili
+            width: siderbar.width
+            height: root.width * 0.1
+            anchors.bottom: siderbar.bottom
+            text: "十_OvO"
+            iconSource: "./res/bilibili.png"
+
+            MouseArea{
+                anchors.fill: parent
+
+                onClicked: {
+                    var url = "https://space.bilibili.com/387426555"
+                    if (Qt.openUrlExternally(url)) {
+                        console.log("Successfully opened URL: " + url)
+                    } else {
+                        console.log("Failed to open URL: " + url)
+                    }
+                }
+            }
+        }
+
         // 页面标签
         ListView{
             id: listView
             anchors.top: menu.bottom
             anchors.left: siderbar.left
             anchors.right: siderbar.right
-            anchors.bottom: siderbar.bottom
+            // anchors.bottom: siderbar.bottom
+            anchors.bottom: bilibili.top
             clip: true
 
             // 标签信息

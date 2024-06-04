@@ -50,6 +50,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/switch.png
         res/progress.png
         res/edit.png
+        res/bilibili.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

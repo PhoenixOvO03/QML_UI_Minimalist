@@ -28,6 +28,11 @@ Item {
                 width: 200
                 height: 200
             }
+
+            AreaEdit{
+                width: 300
+                height: 400
+            }
         }
     }
 }
