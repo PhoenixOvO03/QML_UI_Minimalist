@@ -11,7 +11,8 @@ Rectangle {
     // 侧边栏
     Rectangle{
         id: siderbar
-        width: root.sidebarChecked ? root.width * 0.2 : root.width * 0.1
+        // width: root.sidebarChecked ? root.width * 0.2 : root.width * 0.1
+        width: root.sidebarChecked ? 200 : 100
         height: root.height
         color: "transparent"
 
@@ -25,7 +26,7 @@ Rectangle {
         SiderbarItem{
             id: menu
             width: siderbar.width
-            height: root.width * 0.1
+            height: 100
             // textVisible: sidebarChecked
             // color: "#20000000"
 
@@ -39,7 +40,7 @@ Rectangle {
         SiderbarItem{
             id: bilibili
             width: siderbar.width
-            height: root.width * 0.1
+            height: 100
             anchors.bottom: siderbar.bottom
             text: "十_OvO"
             iconSource: "./res/bilibili.png"

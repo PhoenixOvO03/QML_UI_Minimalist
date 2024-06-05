@@ -2,6 +2,11 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 
+// 自定义无边框窗口
+/*
+ * 感谢B站用户 辛归元 提出界面设计建议：
+ * 窗口圆角化、添加边缘拖拽缩放窗口、双击状态栏最大化和正常化
+*/
 Window{
     id: mainWindow
     width: 800
@@ -10,8 +15,9 @@ Window{
     // 窗口 | 无边框窗口
     flags: Qt.Window | Qt.FramelessWindowHint
     visible: true
+    color: "transparent" // 背景透明方便圆角
 
-    property bool isBody: true
+    property bool isBody: true // 主页面和皮肤页面切换
     property color titleColor: "black"
     property color backgroundColor: "#404040"
 
@@ -24,6 +30,7 @@ Window{
             id: background
             anchors.fill: parent
             color: mainWindow.backgroundColor
+            radius: mainWindow.visibility == mainWindow.Maximized ? 0 : 25 // 非最大化为圆角
         }
 
         // 标题栏
@@ -32,6 +39,7 @@ Window{
             width: parent.width
             height: 50
             color: mainWindow.titleColor
+            radius: mainWindow.visibility == mainWindow.Maximized ? 0 : 25 // 非最大化为圆角
 
             // 拖动条
             Item {
@@ -61,6 +69,12 @@ Window{
                     anchors.left: mainIcon.right
                     fillMode: Image.PreserveAspectFit
                     source: "./res/title.png"
+                }
+
+                // 双击最大化或正常化
+                MouseArea{
+                    anchors.fill: parent
+                    onDoubleClicked: mainWindow.visibility == mainWindow.Maximized ? mainWindow.showNormal() : mainWindow.showMaximized()
                 }
             }
 
@@ -165,6 +179,135 @@ Window{
             anchors.top: titleBar.bottom
             anchors.bottom: parent.bottom
             visible: mainWindow.isBody
+        }
+    }
+
+    // 界面缩放区域
+    Item {
+        id: scaling
+        anchors.fill: parent
+        enabled:  mainWindow.visibility !== mainWindow.Maximized // 最大化时不可用
+
+        // 上
+        Item {
+            height: 5
+            width: parent.width
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeVerCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.TopEdge)
+            }
+        }
+
+        // 下
+        Item {
+            height: 5
+            width: parent.width
+            anchors.bottom: parent.bottom
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeVerCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.BottomEdge)
+            }
+        }
+
+        // 左
+        Item {
+            width: 5
+            height: parent.height
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeHorCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.LeftEdge)
+            }
+        }
+
+        // 右
+        Item {
+            width: 5
+            height: parent.height
+            anchors.right: parent.right
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeHorCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.RightEdge)
+            }
+        }
+
+        // 左上
+        Item {
+            id: left_top
+            width: 5
+            height: 5
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeFDiagCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.LeftEdge | Qt.TopEdge)
+            }
+        }
+
+        // 右上
+        Item {
+            id: right_top
+            width: 5
+            height: 5
+            anchors.right: parent.right
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeBDiagCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.RightEdge | Qt.TopEdge)
+            }
+        }
+
+        // 左下
+        Item {
+            id: left_bottom
+            width: 5
+            height: 5
+            anchors.bottom: parent.bottom
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeBDiagCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.LeftEdge | Qt.BottomEdge)
+            }
+        }
+
+        // 右下
+        Item {
+            id: right_bottom
+            width: 5
+            height: 5
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.SizeFDiagCursor
+
+                onPressed: mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge)
+            }
         }
     }
 }
