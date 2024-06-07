@@ -12,14 +12,16 @@ Window{
     width: 800
     height: 650
     title: "QML_UI_Minimalist"
-    // 窗口 | 无边框窗口
-    flags: Qt.Window | Qt.FramelessWindowHint
+    flags: Qt.Window | Qt.FramelessWindowHint // 窗口 | 无边框窗口
     visible: true
     color: "transparent" // 背景透明方便圆角
+    minimumWidth: 450 // 最小宽度
+    minimumHeight: 400 // 最小高度
 
     property bool isBody: true // 主页面和皮肤页面切换
-    property color titleColor: "black"
-    property color backgroundColor: "#404040"
+    property color titleColor: "black" // 标题颜色
+    property color backTopColor: "#404040" // 背景上方颜色
+    property color backBottomColor: "#404040" // 背景下方颜色
 
     // 全体界面
     Item {
@@ -29,8 +31,13 @@ Window{
         Rectangle{
             id: background
             anchors.fill: parent
-            color: mainWindow.backgroundColor
+            // color: mainWindow.backgroundColor
             radius: mainWindow.visibility == mainWindow.Maximized ? 0 : 25 // 非最大化为圆角
+
+            gradient: Gradient{
+                GradientStop{position:0.0;color: mainWindow.backTopColor}
+                GradientStop{position:1;color: mainWindow.backBottomColor}
+            }
         }
 
         // 标题栏
@@ -166,8 +173,10 @@ Window{
             visible: !mainWindow.isBody
 
             onCheckSkin: {
-                titleColor = titleArg
-                backgroundColor = backgroundArg
+                mainWindow.titleColor = titleColor
+                // mainWindow.backgroundColor = backgroundArg
+                mainWindow.backTopColor = backTopColor
+                mainWindow.backBottomColor = backBottomColor
             }
         }
 
