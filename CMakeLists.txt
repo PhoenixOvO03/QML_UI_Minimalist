@@ -37,6 +37,8 @@ qt_add_qml_module(appQML_UI_Minimalist
         ClickBtn.qml
         RippleProgress.qml
         AreaEdit.qml
+        TablePage.qml
+        Table.qml
     RESOURCES
         res/close.png
         res/max.png
@@ -51,6 +53,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/progress.png
         res/edit.png
         res/bilibili.png
+        res/table.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

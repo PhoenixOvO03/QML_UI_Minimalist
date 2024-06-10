@@ -25,4 +25,10 @@ Rectangle {
         anchors.fill: parent
         visible: root.pageIndex === 2
     }
+
+    // 表格页面
+    TablePage{
+        anchors.fill: parent
+        visible: root.pageIndex === 3
+    }
 }

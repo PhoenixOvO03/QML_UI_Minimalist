@@ -71,18 +71,10 @@ Rectangle {
 
             // 标签信息
             model: ListModel{
-                ListElement{
-                    labelText: "按钮"
-                    labelIcon: "./res/switch.png"
-                }
-                ListElement{
-                    labelText: "进度条"
-                    labelIcon: "./res/progress.png"
-                }
-                ListElement{
-                    labelText: "编辑"
-                    labelIcon: "./res/edit.png"
-                }
+                ListElement{labelText: "按钮"; labelIcon: "./res/switch.png"}
+                ListElement{labelText: "进度条"; labelIcon: "./res/progress.png"}
+                ListElement{labelText: "编辑"; labelIcon: "./res/edit.png"}
+                ListElement{labelText: "表格"; labelIcon: "./res/table.png"}
             }
 
             // 侧边栏部件
