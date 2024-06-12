@@ -28,7 +28,8 @@ Item {
         model: root.value
         highlight: Rectangle{color: "#20000000"}
 
-        delegate: Item{
+        delegate: Item{ // 一行内的所有元素
+            id: itemRow
             width: root.width
             height: 50
 
@@ -48,7 +49,6 @@ Item {
 
                         Text {
                             text: text = root.value.get(currentRow)[root.titleType[index]]
-                            // text:
                             anchors.centerIn: parent
                             font.pixelSize: 25
                             color: "white"
@@ -65,6 +65,45 @@ Item {
             }
         }
 
+        // 添加动画
+        add: Transition {
+            NumberAnimation{
+                property: "x"
+                from: -allTitle.width
+                to: 0
+                duration: 500
+                easing.type: Easing.OutCubic
+            }
+        }
+        // 删除动画
+        remove: Transition {
+            SequentialAnimation{
+                NumberAnimation {
+                    property: "x"
+                    from: 0
+                    to: allTitle.width
+                    duration: 500
+                    easing.type: Easing.OutCubic
+                }
+            }
+        }
+        // 被动移动动画
+        displaced: Transition {
+            NumberAnimation {
+                property: "y"
+                duration: 500
+                easing.type: Easing.OutCubic
+            }
+        }
+        // 移动动画
+        move: Transition {
+            NumberAnimation {
+                property: "y"
+                duration: 500
+                easing.type: Easing.OutCubic
+            }
+        }
+
         function moveUp(){
             if (currentIndex <= 0) return;
             root.value.move(currentIndex, currentIndex - 1, 1);
@@ -78,11 +117,13 @@ Item {
         }
 
         function copy(){
+            if (root.value.count <= 0) return;
             var data = root.value.get(currentIndex)
             root.value.insert(currentIndex, data)
         }
 
         function removeCurrent(){
+            if (root.value.count <= 0) return;
             root.value.remove(currentIndex)
         }
     }
@@ -101,7 +142,7 @@ Item {
                 width: root.titleWidth.length > index ? root.titleWidth[index] : 200
                 height: 50
                 color: "transparent"
-                border.color: "steelblue"
+                // border.color: "steelblue"
                 clip: true
 
                 // 标题文字
@@ -137,6 +178,21 @@ Item {
         }
     }
 
+    // 标题下划线
+    Rectangle{
+        anchors.bottom: allTitle.bottom
+        width: parent.width
+        height: 3
+        color: "steelblue"
+
+        Rectangle{
+            anchors.centerIn: parent
+            width: parent.width
+            height: 1
+            color: "white"
+        }
+    }
+
     // 下方进度条
     ScrollBar {
         id: hbar
@@ -147,7 +203,6 @@ Item {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
     }
-
 
     // 边框
     Rectangle{
