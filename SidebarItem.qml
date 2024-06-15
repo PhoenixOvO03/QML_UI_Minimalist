@@ -9,12 +9,12 @@ import QtQuick
 */
 Rectangle {
     property string iconSource: "./res/menu.png"
-    // property bool textVisible: false
     property string text: "菜单"
     property bool isHover: false
 
     id: root
-    color: root.isHover ? "#20000000" : "transparent"
+    color: root.isHover ? "#20ffffff" : "transparent"
+    radius: 20
     clip: true
 
     // 图标
@@ -33,11 +33,9 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         color: "white"
-        font.family: "华文彩云"
         style: Text.Outline
         styleColor: "steelblue"
         font.pixelSize: root.height / 4
-        // visible: root.textVisible
         text: root.text
     }
 }

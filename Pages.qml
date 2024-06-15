@@ -1,12 +1,10 @@
 import QtQuick
 
 // 控制显示各个页面
-Rectangle {
+Item {
     property int pageIndex: 0
 
     id: root
-    // color: "#20000000"
-    color: "transparent"
 
     // 按钮页面
     BtnsPage{

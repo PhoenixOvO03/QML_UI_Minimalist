@@ -22,11 +22,11 @@ Item {
         Row{
             spacing: 20
 
-            CheckBtn{width: 100; height: 100; checkColor: "green"}
-            CheckBtn{width: 100; height: 100; checkColor: "red"}
-            CheckBtn{width: 100; height: 100; checkColor: "blue"}
-            CheckBtn{width: 100; height: 100; checkColor: "pink"}
-            CheckBtn{width: 100; height: 100; checkColor: "brown"}
+            CheckBtn{width: 100; height: 40; labelText: "复选1"; checkColor: "green"}
+            CheckBtn{width: 100; height: 40; labelText: "复选2"; checkColor: "red"}
+            CheckBtn{width: 100; height: 40; labelText: "复选3"; checkColor: "blue"}
+            CheckBtn{width: 100; height: 40; labelText: "复选4"; checkColor: "pink"}
+            CheckBtn{width: 100; height: 40; labelText: "复选5"; checkColor: "brown"}
         }
 
         // 点击按钮
@@ -51,16 +51,6 @@ Item {
                     ListElement{labelText: "按钮1"}
                     ListElement{labelText: "按钮2"}
                     ListElement{labelText: "按钮3"}
-                }
-            }
-            RadioBtnCombobox{
-                width: 200
-                height: 200
-                checkColor: "lightblue"
-                listModel: ListModel{
-                    ListElement{labelText: "btn1"}
-                    ListElement{labelText: "btn2"}
-                    ListElement{labelText: "btn3"}
                 }
             }
             RadioBtnCombobox{

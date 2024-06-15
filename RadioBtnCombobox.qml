@@ -6,7 +6,9 @@ Rectangle{
     property color checkColor: "green"
 
     id: root
-    color: "transparent"
+    color: "#80444444"
+    border.color: "white"
+    radius: height / listModel.count / 2
 
     ListView{
         id: listView
@@ -49,7 +51,7 @@ Rectangle{
                 text: labelText
                 verticalAlignment: Text.AlignVCenter
                 color: "white"
-                font.family: "华文彩云"
+                // font.family: "华文彩云"
                 style: Text.Outline
                 styleColor: "steelblue"
                 font.pixelSize: parent.height / 2
@@ -72,7 +74,8 @@ Rectangle{
         Rectangle{
             width: root.width
             height: root.height / root.listModel.count
-            color: "#20000000"
+            color: "#40ffffff"
+            radius: height / 2
         }
     }
 }

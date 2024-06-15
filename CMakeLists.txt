@@ -20,10 +20,9 @@ qt_add_qml_module(appQML_UI_Minimalist
     VERSION 1.0
     QML_FILES
         Main.qml
-        Skin.qml
-        Body.qml
+        SkinPage.qml
         SkinItem.qml
-        SiderbarItem.qml
+        SidebarItem.qml
         Pages.qml
         BtnsPage.qml
         SwitchBtn.qml
@@ -39,6 +38,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         AreaEdit.qml
         TablePage.qml
         Table.qml
+        Sidebar.qml
     RESOURCES
         res/close.png
         res/max.png
