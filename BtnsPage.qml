@@ -15,7 +15,6 @@ Item {
             SwitchBtn{width: 100; height: 40; checkColor: "red"}
             SwitchBtn{width: 100; height: 40; checkColor: "blue"}
             SwitchBtn{width: 100; height: 40; checkColor: "pink"}
-            SwitchBtn{width: 100; height: 40; checkColor: "brown"}
         }
 
         // 复选按钮
@@ -26,7 +25,6 @@ Item {
             CheckBtn{width: 100; height: 40; labelText: "复选2"; checkColor: "red"}
             CheckBtn{width: 100; height: 40; labelText: "复选3"; checkColor: "blue"}
             CheckBtn{width: 100; height: 40; labelText: "复选4"; checkColor: "pink"}
-            CheckBtn{width: 100; height: 40; labelText: "复选5"; checkColor: "brown"}
         }
 
         // 点击按钮
@@ -37,7 +35,6 @@ Item {
             ClickBtn{width: 100; height: 50; btnColor: "red"; btnText: "按钮2"}
             ClickBtn{width: 100; height: 50; btnColor: "blue"}
             ClickBtn{width: 100; height: 50; btnColor: "pink"}
-            ClickBtn{width: 100; height: 50; btnColor: "brown"}
         }
 
         // 单选按钮组
@@ -45,7 +42,7 @@ Item {
             spacing: 20
 
             RadioBtnCombobox{
-                width: 300
+                width: 340
                 height: 300
                 listModel: ListModel{
                     ListElement{labelText: "按钮1"}

@@ -7,8 +7,17 @@ import QtQuick.Window
  * 窗口圆角化、添加边缘拖拽缩放窗口、双击状态栏最大化和正常化
  * 感谢B站用户 白白白狗子 提出的界面优化建议：
  * 致敬apple vision ui对整体的主题设计进行了优化
+ * 感谢B站用户 一言不合就搞学习 提出的建议：
+ * 窗口拖拽到屏幕上方边缘最大化，左右边缘半屏
 */
 Window{
+    property bool isBody: true // 主页面和皮肤页面切换
+    property color backTopColor: "#c0444444" // 背景上方颜色
+    property color backBottomColor: "#c0444444" // 背景下方颜色
+    property real windowedWidth: width
+    property real windowedHeight: height
+    property real windowedX: x
+
     id: mainWindow
     width: 800
     height: 650
@@ -18,14 +27,9 @@ Window{
     minimumWidth: 700 // 最小宽度
     minimumHeight: 600 // 最小高度
 
-    property bool isBody: true // 主页面和皮肤页面切换
-    property color backTopColor: "#c0444444" // 背景上方颜色
-    property color backBottomColor: "#c0444444" // 背景下方颜色
-
     // 侧边栏
     Sidebar{
         id: sidebar
-
         width: sidebarChecked || mainWindow.visibility == mainWindow.Maximized ? 80 : 40
         height: parent.height
         onCurrentIndexChanged: pages.pageIndex = currentIndex
@@ -44,6 +48,7 @@ Window{
         border.color: "#80ffffff"
         clip: true
 
+        // 背景渐变
         gradient: Gradient{
             GradientStop{position:0.0;color: mainWindow.backTopColor}
             GradientStop{position:1;color: mainWindow.backBottomColor}
@@ -79,10 +84,43 @@ Window{
                 anchors.right: closeBtn.left
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
+
                 DragHandler{
+                    id: dragHandler
                     onActiveChanged: {
-                        if (active){
+                        if (active){ // 按下并拖拽
+                            mainWindow.x = mainWindow.windowedX
                             mainWindow.startSystemMove()
+                            mainWindow.width = mainWindow.windowedWidth
+                            mainWindow.height = mainWindow.windowedHeight
+                        }
+                        else // 松开
+                        {
+                            var screenX = mainWindow.x + dragHandler.centroid.position.x + 80 + 50 // 侧边栏80 图标50
+                            var screenY = mainWindow.y + dragHandler.centroid.position.y
+                            // 备份修改前的窗口数据
+                            mainWindow.windowedWidth = mainWindow.width
+                            mainWindow.windowedHeight = mainWindow.height
+                            mainWindow.windowedX = mainWindow.x
+
+                            if (Math.abs(screenY) < 2){ // 上方最大化
+                                mainWindow.windowedX = mainWindow.x
+                                mainWindow.showMaximized()
+                            }
+                            else if (Math.abs(screenX) < 2){ // 左方半屏
+                                mainWindow.windowedX = 0
+                                mainWindow.width = screen.width / 2;
+                                mainWindow.height = screen.height;
+                                mainWindow.x = 0;
+                                mainWindow.y = 0;
+                            }
+                            else if (screenX > Screen.width - 2){ // 右方半屏
+                                mainWindow.windowedX = screen.width / 2;
+                                mainWindow.width = screen.width / 2;
+                                mainWindow.height = screen.height;
+                                mainWindow.x = screen.width / 2;
+                                mainWindow.y = 0;
+                            }
                         }
                     }
                 }
@@ -94,6 +132,7 @@ Window{
                 }
             }
 
+            // 中心标题
             Image {
                 anchors.centerIn: parent
                 height: parent.height
@@ -148,7 +187,6 @@ Window{
 
         // 界面缩放区域
         Item {
-            id: scaling
             anchors.fill: parent
             enabled:  mainWindow.visibility !== mainWindow.Maximized // 最大化时不可用
 
