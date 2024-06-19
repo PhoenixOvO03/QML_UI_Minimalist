@@ -14,9 +14,10 @@ Window{
     property bool isBody: true // 主页面和皮肤页面切换
     property color backTopColor: "#c0444444" // 背景上方颜色
     property color backBottomColor: "#c0444444" // 背景下方颜色
-    property real windowedWidth: width
-    property real windowedHeight: height
-    property real windowedX: x
+    property real windowedWidth: width // 窗口化宽度
+    property real windowedHeight: height // 窗口化高度
+    property real windowedX: x // 窗口化x坐标
+    property bool isHalfScreen: false // 是否半屏
 
     id: mainWindow
     width: 800
@@ -27,10 +28,15 @@ Window{
     minimumWidth: 700 // 最小宽度
     minimumHeight: 600 // 最小高度
 
+    function saveSize(){
+        mainWindow.windowedWidth = mainWindow.width
+        mainWindow.windowedHeight = mainWindow.height
+    }
+
     // 侧边栏
     Sidebar{
         id: sidebar
-        width: sidebarChecked || mainWindow.visibility == mainWindow.Maximized ? 80 : 40
+        width: sidebarChecked || mainWindow.visibility == mainWindow.Maximized || mainWindow.isHalfScreen ? 80 : 40
         height: parent.height
         onCurrentIndexChanged: pages.pageIndex = currentIndex
         backTopColor: mainWindow.backTopColor
@@ -89,18 +95,26 @@ Window{
                     id: dragHandler
                     onActiveChanged: {
                         if (active){ // 按下并拖拽
+                            if (mainWindow.isHalfScreen)
+                            {
+                                mainWindow.width = mainWindow.windowedWidth
+                                mainWindow.height = mainWindow.windowedHeight
+                                mainWindow.isHalfScreen = false
+                            }
+                            else
+                            {
+                                mainWindow.showNormal()
+                            }
+
                             mainWindow.x = mainWindow.windowedX
                             mainWindow.startSystemMove()
-                            mainWindow.width = mainWindow.windowedWidth
-                            mainWindow.height = mainWindow.windowedHeight
                         }
                         else // 松开
                         {
                             var screenX = mainWindow.x + dragHandler.centroid.position.x + 80 + 50 // 侧边栏80 图标50
                             var screenY = mainWindow.y + dragHandler.centroid.position.y
                             // 备份修改前的窗口数据
-                            mainWindow.windowedWidth = mainWindow.width
-                            mainWindow.windowedHeight = mainWindow.height
+                            mainWindow.saveSize()
                             mainWindow.windowedX = mainWindow.x
 
                             if (Math.abs(screenY) < 2){ // 上方最大化
@@ -113,6 +127,7 @@ Window{
                                 mainWindow.height = screen.height;
                                 mainWindow.x = 0;
                                 mainWindow.y = 0;
+                                mainWindow.isHalfScreen = true
                             }
                             else if (screenX > Screen.width - 2){ // 右方半屏
                                 mainWindow.windowedX = screen.width / 2;
@@ -120,6 +135,7 @@ Window{
                                 mainWindow.height = screen.height;
                                 mainWindow.x = screen.width / 2;
                                 mainWindow.y = 0;
+                                mainWindow.isHalfScreen = true
                             }
                         }
                     }
@@ -201,6 +217,7 @@ Window{
                     cursorShape: Qt.SizeVerCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.TopEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -216,6 +233,7 @@ Window{
                     cursorShape: Qt.SizeVerCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.BottomEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -230,6 +248,7 @@ Window{
                     cursorShape: Qt.SizeHorCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.LeftEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -245,6 +264,7 @@ Window{
                     cursorShape: Qt.SizeHorCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.RightEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -260,6 +280,7 @@ Window{
                     cursorShape: Qt.SizeFDiagCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.LeftEdge | Qt.TopEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -276,6 +297,7 @@ Window{
                     cursorShape: Qt.SizeBDiagCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.RightEdge | Qt.TopEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -292,6 +314,7 @@ Window{
                     cursorShape: Qt.SizeBDiagCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.LeftEdge | Qt.BottomEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
 
@@ -309,6 +332,7 @@ Window{
                     cursorShape: Qt.SizeFDiagCursor
 
                     onPressed: mainWindow.startSystemResize(Qt.RightEdge | Qt.BottomEdge)
+                    onReleased: mainWindow.saveSize()
                 }
             }
         }
