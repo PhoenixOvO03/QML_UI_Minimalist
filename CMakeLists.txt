@@ -12,7 +12,9 @@ qt_standard_project_setup()
 set(app_icon_resource_windows "${CMAKE_CURRENT_SOURCE_DIR}/res/icon.rc")
 
 qt_add_executable(appQML_UI_Minimalist
-    main.cpp ${app_icon_resource_windows}
+    main.cpp
+    # "qml.qrc"
+    ${app_icon_resource_windows}
 )
 
 qt_add_qml_module(appQML_UI_Minimalist
@@ -54,6 +56,7 @@ qt_add_qml_module(appQML_UI_Minimalist
         res/edit.png
         res/bilibili.png
         res/table.png
+        # qml.qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

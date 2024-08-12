@@ -37,7 +37,7 @@ Item {
             var y = r-p*root.width  //波纹高度的Y
             ctx.beginPath()
             ctx.arc(0,0,r,0,2*Math.PI)
-            ctx.fillStyle = "gray"
+            ctx.fillStyle = root.valueColor
             ctx.fill()
             // 波浪
             ctx.clip()
@@ -49,7 +49,7 @@ Item {
             ctx.lineTo(r,r)
             ctx.lineTo(-r,r)
             ctx.closePath()
-            ctx.fillStyle = root.valueColor
+            ctx.fillStyle = Qt.lighter(root.valueColor)
             ctx.fill()
             ctx.restore()
             // 相位移动
@@ -62,6 +62,9 @@ Item {
         font.bold: true
         anchors.centerIn: parent
         font.pointSize: 30
+        color: "#80444444"
+        style: Text.Outline
+        styleColor: "#80ffffff"
     }
 
     Timer{

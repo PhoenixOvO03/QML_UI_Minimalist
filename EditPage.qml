@@ -5,6 +5,8 @@ Item {
     anchors.margins: 20
 
     Column{
+        spacing: 20
+
         // 单行输入框
         Row{
             spacing: 20

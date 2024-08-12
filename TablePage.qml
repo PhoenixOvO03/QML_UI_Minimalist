@@ -3,6 +3,7 @@ import QtQuick
 // 表格页面
 Item {
     id: root
+    anchors.leftMargin: 20
 
     Row{
         spacing: root.width * 0.05
@@ -14,7 +15,7 @@ Item {
             ClickBtn{
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "上移"
                 onClicked: table1.moveUp()
             }
@@ -23,7 +24,7 @@ Item {
                 x: 80
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "下移"
                 onClicked: table1.moveDown()
             }
@@ -32,7 +33,7 @@ Item {
                 x: 160
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "复制"
                 onClicked: table1.copy()
             }
@@ -41,7 +42,7 @@ Item {
                 x: 240
                 width: 80
                 height: 50
-                btnColor: "red"
+                btnColor: "#ffd0d0"
                 btnText: "删除"
                 onClicked: table1.remove()
             }
@@ -78,7 +79,7 @@ Item {
             ClickBtn{
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "上移"
                 onClicked: table2.moveUp()
             }
@@ -87,7 +88,7 @@ Item {
                 x: 80
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "下移"
                 onClicked: table2.moveDown()
             }
@@ -96,7 +97,7 @@ Item {
                 x: 160
                 width: 80
                 height: 50
-                btnColor: "green"
+                btnColor: "#80d080"
                 btnText: "复制"
                 onClicked: table2.copy()
             }
@@ -105,7 +106,7 @@ Item {
                 x: 240
                 width: 80
                 height: 50
-                btnColor: "red"
+                btnColor: "#ffd0d0"
                 btnText: "删除"
                 onClicked: table2.remove()
             }

@@ -6,21 +6,10 @@ import QtQuick
  * 右侧的清除按钮在输入后再显示出来
 */
 Rectangle {
+    id: root
     radius: height / 2
-    color: "#20000000"
-    border.width: 5
-    border.color: "steelblue"
-
-    // 边框
-    Rectangle{
-        anchors.centerIn: parent
-        width: parent.width - 4
-        height: parent.height - 4
-        radius: height / 2
-        color: "transparent"
-        border.width: 1
-        border.color: "white"
-    }
+    color: "#80444444"
+    border.color: "#80ffffff"
 
     // 输入框
     TextInput{
@@ -44,12 +33,12 @@ Rectangle {
         width: parent.height / 2
         height: width
         radius: width / 2
-        color: "#40FFFFFF"
+        color: "#80ffffff"
         visible: textInput.length !== 0
 
         Text {
             anchors.centerIn: parent
-            color: "white"
+            color: "#80444444"
             text: "X"
             font.pixelSize: parent.width / 2
         }

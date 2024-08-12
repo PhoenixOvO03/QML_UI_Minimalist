@@ -17,6 +17,13 @@ Item {
     function copy(){table.copy()} // 复制
     function remove(){table.removeCurrent()} // 删除
 
+    // 背景和边框
+    Rectangle{
+        anchors.fill: parent
+        color: "#80444444"
+        border.color: "#80ffffff"
+    }
+
     // 表格
     ListView{
         id: table
@@ -26,7 +33,7 @@ Item {
         anchors.right: parent.right
         clip: true
         model: root.value
-        highlight: Rectangle{color: "#20000000"}
+        highlight: Rectangle{color: "#40ffffff"}
 
         delegate: Item{ // 一行内的所有元素
             id: itemRow
@@ -142,7 +149,7 @@ Item {
                 width: root.titleWidth.length > index ? root.titleWidth[index] : 200
                 height: 50
                 color: "transparent"
-                // border.color: "steelblue"
+                border.color: "#80ffffff"
                 clip: true
 
                 // 标题文字
@@ -178,21 +185,6 @@ Item {
         }
     }
 
-    // 标题下划线
-    Rectangle{
-        anchors.bottom: allTitle.bottom
-        width: parent.width
-        height: 3
-        color: "steelblue"
-
-        Rectangle{
-            anchors.centerIn: parent
-            width: parent.width
-            height: 1
-            color: "white"
-        }
-    }
-
     // 下方进度条
     ScrollBar {
         id: hbar
@@ -202,21 +194,5 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-    }
-
-    // 边框
-    Rectangle{
-        anchors.fill: parent
-        color: "transparent"
-        border.width: 3
-        border.color: "steelblue"
-
-        Rectangle{
-            anchors.centerIn: parent
-            width: parent.width - 2
-            height: parent.height - 2
-            color: "transparent"
-            border.color: "white"
-        }
     }
 }

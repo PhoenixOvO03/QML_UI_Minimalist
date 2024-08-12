@@ -14,7 +14,7 @@ Item {
             SliderProgress{
                 width: 200
                 height: 20
-                sliderColor: "blue"
+                sliderColor: "#80d080" // 绿
                 onValueChanged: {
                     circleProgress1.value = value
                     rippleProgress1.value = value
@@ -24,7 +24,7 @@ Item {
             SliderProgress{
                 width: 200
                 height: 20
-                sliderColor: "pink"
+                sliderColor: "#daa520" // 黄
                 onValueChanged: {
                     circleProgress2.value = value
                     rippleProgress2.value = value
@@ -34,7 +34,7 @@ Item {
             SliderProgress{
                 width: 200
                 height: 20
-                sliderColor: "yellow"
+                sliderColor: "#87ceeb" // 蓝
                 onValueChanged: {
                     circleProgress3.value = value
                     rippleProgress3.value = value
@@ -52,7 +52,7 @@ Item {
                 height: 200
                 minValue: -40
                 maxValue: 50
-                sliderColor: "blue"
+                sliderColor: "#80d080" // 绿
                 typeName: "温度："
             }
 
@@ -62,7 +62,7 @@ Item {
                 height: 200
                 minValue: 0
                 maxValue: 100
-                sliderColor: "pink"
+                sliderColor: "#daa520" // 黄
                 typeName: "湿度："
             }
 
@@ -72,7 +72,7 @@ Item {
                 height: 200
                 minValue: 25
                 maxValue: 75
-                sliderColor: "yellow"
+                sliderColor: "#87ceeb" // 蓝
             }
         }
 
@@ -84,21 +84,21 @@ Item {
                 id: rippleProgress1
                 width: 200
                 height: 200
-                valueColor: "blue"
+                valueColor: "#80d080" // 绿
             }
 
             RippleProgress{
                 id: rippleProgress2
                 width: 200
                 height: 200
-                valueColor: "pink"
+                valueColor: "#daa520" // 黄
             }
 
             RippleProgress{
                 id: rippleProgress3
                 width: 200
                 height: 200
-                valueColor: "yellow"
+                valueColor: "#87ceeb" // 蓝
             }
         }
     }

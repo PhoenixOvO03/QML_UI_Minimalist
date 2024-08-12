@@ -9,15 +9,13 @@ Item {
     property color sliderColor: "green"
     property string typeName: ""
 
-    // 动态绘图
     Behavior on valueAngle {
         NumberAnimation{
             duration: 500
         }
     }
     onValueAngleChanged: canvas.requestPaint()
-    // 越界
-    onValueChanged: {
+    onValueChanged: { // 越界
         if (value < minValue)value = minValue
         else if (value > maxValue) value = maxValue
     }
@@ -47,14 +45,14 @@ Item {
             ctx.beginPath();
             ctx.arc(root.width/2, root.width/2, root.width * 0.4, -150*Math.PI/180, 150*Math.PI/180, false);
             ctx.lineWidth = root.width * 0.1
-            ctx.strokeStyle = "gray";
+            ctx.strokeStyle = root.sliderColor;
             ctx.stroke();
 
             // 值
             ctx.beginPath();
             ctx.arc(root.width/2, root.width/2, root.width * 0.4, -150*Math.PI/180, valueAngle, false);
-            ctx.lineWidth = root.width * 0.1
-            ctx.strokeStyle = root.sliderColor;
+            ctx.lineWidth = root.width * 0.05
+            ctx.strokeStyle = Qt.lighter(root.sliderColor);
             ctx.stroke();
         }
     }

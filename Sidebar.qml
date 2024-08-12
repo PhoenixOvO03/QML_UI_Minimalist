@@ -51,6 +51,7 @@ Item {
         width: root.width
         height: Math.min(listView.count * menu.height, root.height - 150)
         clip: true
+        // focus: true
 
         // 标签信息
         model: ListModel{
@@ -86,7 +87,6 @@ Item {
             radius: 20
         }
 
-        focus: true
         onCurrentIndexChanged: root.currentIndex = listView.currentIndex
     }
 

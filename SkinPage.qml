@@ -21,10 +21,10 @@ Item {
         model: ListModel{
             ListElement{topInit: "#c0444444"; bottomInit: "#c0444444"} // 灰
             ListElement{topInit: "#c0444444"; bottomInit: "#c0ffffff"} // 白
-            ListElement{topInit: "#c0444444"; bottomInit: "#c0ffd0d0"} // 粉
             ListElement{topInit: "#c0444444"; bottomInit: "#c080d080"} // 绿
             ListElement{topInit: "#c0444444"; bottomInit: "#c0daa520"} // 黄
             ListElement{topInit: "#c0444444"; bottomInit: "#c087ceeb"} // 蓝
+            ListElement{topInit: "#c0444444"; bottomInit: "#c0ffd0d0"} // 粉
         }
 
         delegate: SkinItem{

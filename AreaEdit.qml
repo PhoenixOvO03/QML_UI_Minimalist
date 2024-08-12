@@ -6,9 +6,8 @@ import QtQuick.Controls.Basic
 Rectangle {
     id: root
     radius: 10
-    color: "#20000000"
-    border.width: 5
-    border.color: "steelblue"
+    color: "#80444444"
+    border.color: "#80ffffff"
 
     ScrollView {
         id: scrollView
@@ -24,25 +23,13 @@ Rectangle {
         }
     }
 
-    // 边框
-    Rectangle{
-        anchors.centerIn: parent
-        width: parent.width - 4
-        height: parent.height - 4
-        radius: 8
-        color: "transparent"
-        border.width: 1
-        border.color: "white"
-    }
-
     // 字数统计
     Text {
         anchors.right: scrollView.right
         anchors.bottom: scrollView.bottom
         text: "字数：" + textArea.length
-        color: "white"
-        font.family: "华文彩云"
+        color: "#444444"
         style: Text.Outline
-        styleColor: "steelblue"
+        styleColor: "#ffffff"
     }
 }

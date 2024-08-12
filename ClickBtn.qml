@@ -10,7 +10,7 @@ Rectangle {
 
     id: root
     radius: height / 2
-    color: root.hover ? Qt.lighter(root.btnColor) : root.btnColor
+    color: root.hover ? Qt.darker(root.btnColor) : root.btnColor
     border.color: Qt.lighter(color)
 
     Text {

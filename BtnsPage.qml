@@ -11,30 +11,30 @@ Item {
         Row{
             spacing: 20
 
-            SwitchBtn{width: 100; height: 40; checkColor: "green"}
-            SwitchBtn{width: 100; height: 40; checkColor: "red"}
-            SwitchBtn{width: 100; height: 40; checkColor: "blue"}
-            SwitchBtn{width: 100; height: 40; checkColor: "pink"}
+            SwitchBtn{width: 100; height: 40; checkColor: "#80d080"} // 绿
+            SwitchBtn{width: 100; height: 40; checkColor: "#daa520"} // 黄
+            SwitchBtn{width: 100; height: 40; checkColor: "#87ceeb"} // 蓝
+            SwitchBtn{width: 100; height: 40; checkColor: "#ffd0d0"} // 粉
         }
 
         // 复选按钮
         Row{
             spacing: 20
 
-            CheckBtn{width: 100; height: 40; labelText: "复选1"; checkColor: "green"}
-            CheckBtn{width: 100; height: 40; labelText: "复选2"; checkColor: "red"}
-            CheckBtn{width: 100; height: 40; labelText: "复选3"; checkColor: "blue"}
-            CheckBtn{width: 100; height: 40; labelText: "复选4"; checkColor: "pink"}
+            CheckBtn{width: 100; height: 40; labelText: "复选1"; checkColor: "#80d080"} // 绿
+            CheckBtn{width: 100; height: 40; labelText: "复选2"; checkColor: "#daa520"} // 黄
+            CheckBtn{width: 100; height: 40; labelText: "复选3"; checkColor: "#87ceeb"} // 蓝
+            CheckBtn{width: 100; height: 40; labelText: "复选4"; checkColor: "#ffd0d0"} // 粉
         }
 
         // 点击按钮
         Row{
             spacing: 20
 
-            ClickBtn{width: 100; height: 50; btnColor: "green"; btnText: "btn1"}
-            ClickBtn{width: 100; height: 50; btnColor: "red"; btnText: "按钮2"}
-            ClickBtn{width: 100; height: 50; btnColor: "blue"}
-            ClickBtn{width: 100; height: 50; btnColor: "pink"}
+            ClickBtn{width: 100; height: 50; btnColor: "#80d080"; btnText: "btn1"}
+            ClickBtn{width: 100; height: 50; btnColor: "#daa520"; btnText: "按钮2"}
+            ClickBtn{width: 100; height: 50; btnColor: "#87ceeb"}
+            ClickBtn{width: 100; height: 50; btnColor: "#ffd0d0"}
         }
 
         // 单选按钮组
@@ -44,6 +44,7 @@ Item {
             RadioBtnCombobox{
                 width: 340
                 height: 300
+                checkColor: "#80d080"
                 listModel: ListModel{
                     ListElement{labelText: "按钮1"}
                     ListElement{labelText: "按钮2"}
@@ -53,7 +54,7 @@ Item {
             RadioBtnCombobox{
                 width: 100
                 height: 300
-                checkColor: "pink"
+                checkColor: "#ffd0d0"
                 listModel: ListModel{
                     ListElement{labelText: ""}
                     ListElement{labelText: ""}
